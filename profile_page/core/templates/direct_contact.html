@@ -1,0 +1,42 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="py-5">        
+    
+            <div class="container py-5">
+                <div class="card mx-auto" style="max-width: 450px;">
+                    <div class="card-body text-center">
+                        <h2 class="card-title mb-4">📞 Contact Me</h2>
+        
+                        <p class="mb-3">
+                            <i class="fa-solid fa-envelope fa-2x text-primary"></i><br>
+                            <a href="mailto:your.email@example.com" class="text-decoration-none text-dark">msisay967@gmail.com</a>
+                        </p>
+        
+                        <p class="mb-3">
+                            <i class="fa-solid fa-phone fa-2x text-primary"></i><br>
+                            <a href="tel:+1234567890" class="text-decoration-none text-dark">+251 978 539 445</a>
+                        </p>
+        
+
+                        <p class="mb-3">
+                            <i class="fa-solid fa-map-marker-alt fa-2x text-primary"></i><br>
+                            <span>Addis Abeba, Ethiopia</span>
+                        </p>
+        
+                        <div class="mt-3">
+                            <a target="_blank" class="text-gradient fs-2 mx-1" href="https://www.linkedin.com/in/sisay-molla-12b04a325/"><i class="bi bi-linkedin"></i></a>
+                            <a target="_blank" class="text-gradient fs-2 mx-1" href="https://github.com/sismolla"><i class="bi bi-github"></i></a>
+                            <a target="_blank" class="text-gradient fs-2 mx-1" href="https://t.me/sis103"><i class="bi bi-telegram"></i></a>
+                        </div>
+        
+                        <a href="{% url 'core:direct_contact' %}" class="btn btn-success mt-4">
+                             Direct Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+    </section>
+{% endblock %}

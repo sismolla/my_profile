@@ -1,0 +1,42 @@
+
+{% extends 'navbar.html' %}
+{%block content%}
+
+<section class="py-5">
+    <div class="container px-5 mb-5">
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Certificates</span></h1>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <!-- Project Card 1-->
+                {%for certificate in certificate%}
+                <div class="card shadow rounded-4 border-0 mb-5">
+                    <div class="card-body p-4">
+                        <div class="row align-items-center">
+                            <!-- Text Section -->
+                            <div class="col-md-8">
+                                <h2 class="fw-bolder">{{ certificate.issued_for }}</h2>
+                                <p class="text-muted">{{ certificate.description }}</p>
+                                <a href="{{ certificate.link }}" target="_blank" class="text-primary text-decoration-none">
+                                    <i class="fa-solid fa-link"></i> Visit Certificate
+                                </a>
+                                <p class="mt-2 text-muted">
+                                    <i class="fa-solid fa-calendar"></i> {{ certificate.issued_date }}
+                                </p>
+                            </div>
+                                            <!-- Image Section -->
+                            <div class="col-md-4 text-center">
+                                <img class="img-fluid rounded shadow" src="{{ certificate.image.url }}" alt="Certificate Image" 
+                                     style="max-width: 100%; height: auto; border-radius: 10px; transition: transform 0.3s ease-in-out;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                {%endfor%}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+    <section class="py-5">
+        <div class="container px-5">
+            <div class="bg-light rounded-4 py-5 px-4 px-md-5 shadow">
+                <div class="text-center mb-5">
+                    <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3">
+                        <i class="bi bi-briefcase"></i>
+                    </div>
+                    <h1 class="fw-bolder">Submit Your Certificate</h1>
+                    <p class="lead fw-normal text-muted mb-0">Please fill those fields correctly.</p>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% if messages %}
+                                <ul class="messages" id="messages">
+                                    {% for message in messages %}
+                                        <li class="{{ message.tags }}">{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                            <div class="form-group mb-3">
+                                <label for="job_title">Issued_for</label>
+                                <input type="text" name="issued_for" id="job_title" class="form-control" placeholder="Issued_for" />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="issued_date">Issued Date</label>
+                                <input type="datetime-local" name="issued_date" id="issued_date" class="form-control" placeholder="Certificate" />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="description">Description</label>
+                                <textarea name="description" id="description" class="form-control" rows="4" placeholder="Description"></textarea>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="link">Link of your Certificate</label>
+                                <input type="text" name="link" id="link" class="form-control" placeholder="Link of your Certificate" />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="image">Image of your Certificate</label>
+                                <input type="file" name="image" id="image" class="form-control" />
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-check2"></i> Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

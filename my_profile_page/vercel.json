@@ -9,6 +9,7 @@
           "runtime": "python"
         }
       },
+      
       {
         "src": "build.sh",
         "use": "@vercel/static-build",
@@ -22,9 +23,17 @@
         "src": "/static/(.*)",
         "dest": "/static/$1"
       },
+
+      
       {
         "src": "/(.*)",
         "dest": "profile_page/wsgi.py"
       }
-    ]
+      
+  ],
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "profile_page.settings",
+    "PYTHON_VERSION": "3.11.2"
   }
+}
+  
